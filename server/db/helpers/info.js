@@ -3,7 +3,7 @@ const client = require('../client')
 const createInfo = async ({ gametitle, theme, year, expansions, rateline_id, listline_id }) => {
     try {
         const {
-            rows:[info],
+            rows:[infomation],
         } = await client.query (
             `
             INSERT INTO info(gametitle, theme, year, expansions, rateline_id, listline_id)
@@ -12,23 +12,12 @@ const createInfo = async ({ gametitle, theme, year, expansions, rateline_id, lis
             `,
             [gametitle, theme, year, expansions, rateline_id, listline_id]
         )
-        return info
+        console.log(infomation)
+        return infomation
     } catch (error) {
         throw error
     }
 }
 
-const getAllUsers = async () => {
-    try {
-        const { rows }
-         = await client.query(`
-            SELECT *
-            FROM users;
-        `)
-        console.log(rows)
-        return rows
-    } catch (error) {
-        throw error
-    }
-}
+
 module.exports = { createInfo }

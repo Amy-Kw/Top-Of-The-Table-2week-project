@@ -2,7 +2,9 @@
 const client = require('./client')
 
 const { createUser, getAllUsers } = require('./helpers/users')
-const { createInfo } = require('./helpers/info')
+const { createInfo } = require('./helpers/info') //why this blue?
+const { createRate } = require('./helpers/rate') //why this grey?
+const { createList } = require('./helpers/list') //why this blue?
 
 const { users, info, rate, list } = require('./seedData')
 
@@ -76,8 +78,52 @@ const createInitialUsers = async () => {
 
 }
 
+const createInitialInfo = async () => {
+    try{
+        //looping through ... array  from seedData
+        for (const infomation of info) {
+            //insert each users into the taable
+            await createInfo(infomation) //comeback
+        }
+        await getAllInfo()
+        console.log("created info")
+    } catch (error) {
+        throw error
+    }
+
+}
+
+const createInitialRate = async () => {
+    try{
+        //looping through ... array  from seedData
+        for (const ratee of rate) {
+            //insert each users into the taable
+            await createInfo(ratee)
+        }
+        await getAllRate()
+        console.log("created rate")
+    } catch (error) {
+        throw error
+    }
+
+}
 
 
+
+const createInitialList = async () => {
+    try{
+        //looping through ... array  from seedData
+        for (const listt of list) {
+            //insert each users into the taable
+            await createInfo(listt)
+        }
+        await getAllList()
+        console.log("created list")
+    } catch (error) {
+        throw error
+    }
+
+}
 
 
 
@@ -95,6 +141,9 @@ const rebuildDb = async () => {
          //generating starting data
          console.log("starting to seed")
          await createInitialUsers();
+         await createInitialInfo();
+         await createInitialRate();
+         await createInitialList();
          
 
     } catch (error) {
