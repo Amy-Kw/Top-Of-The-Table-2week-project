@@ -1,16 +1,16 @@
 const client = require('../client')
 
-const createInfo = async ({ gametitle, theme, year, expansions, rateline_id, listline_id }) => {
+const createInfo = async ({ gametitle, theme, year, expansions, ratelineid, listlineid }) => {
     try {
         const {
             rows:[infomation],
         } = await client.query (
             `
-            INSERT INTO info(gametitle, theme, year, expansions, rateline_id, listline_id)
+            INSERT INTO info(gametitle, theme, year, expansions, ratelineid, listlineid)
             VALUES($1, $2, $3, $4, $5, $6)
             RETURNING *;
             `,
-            [gametitle, theme, year, expansions, rateline_id, listline_id]
+            [gametitle, theme, year, expansions, ratelineid, listlineid]
         )
         console.log(infomation)
         return infomation

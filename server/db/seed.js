@@ -2,9 +2,9 @@
 const client = require('./client')
 
 const { createUser, getAllUsers } = require('./helpers/users')
-const { createInfo, getAllInfo } = require('./helpers/info') //why this blue?
 const { createRate, getRateById } = require('./helpers/rate') 
 const { createList, getListById } = require('./helpers/list') 
+const { createInfo, getAllInfo } = require('./helpers/info') //why this blue?
 
 const { users, info, rate, list } = require('./seedData')
 
@@ -37,13 +37,13 @@ const createTables = async () => {
             password varchar(30) NOT NULL
         );
         CREATE TABLE rate (
-            rate_id SERIAL PRIMARY KEY,
+            "rate_id" SERIAL PRIMARY KEY,
             recommended BOOLEAN,
             setupcomplexities INTEGER,
             lvlofdifficulties INTEGER
         );
         CREATE TABLE list (
-            list_id SERIAL PRIMARY KEY,
+            "list_id" SERIAL PRIMARY KEY,
             played BOOLEAN NOT NULL,
             wanttobuy BOOLEAN NOT NULL,
             owned BOOLEAN NOT NULL
@@ -54,8 +54,8 @@ const createTables = async () => {
             theme TEXT,
             year INTEGER,
             expansions BOOLEAN,
-            rateline_id INTEGER REFERENCES rate(rate_id),
-            listline_id INTEGER REFERENCES list(list_id)
+            ratelineid INTEGER REFERENCES rate("rate_id"),
+            listlineid INTEGER REFERENCES list("list_id")
         );
     `)
     console.log("tables built")
@@ -78,20 +78,6 @@ const createInitialUsers = async () => {
 
 }
 
-const createInitialInfo = async () => {
-    try{
-        //looping through ... array  from seedData
-        for (const infomation of info) {
-            //insert each users into the taable
-            await createInfo(infomation) //comeback
-        }
-        await getAllInfo()
-        console.log("created info")
-    } catch (error) {
-        throw error
-    }
-
-}
 
 const createInitialRate = async () => {
     try{
@@ -100,7 +86,7 @@ const createInitialRate = async () => {
             //insert each users into the taable
             await createRate(ratee) //do I need to do a specy: species moment thing?
         }
-        await getRateById()
+        // await getRateById()
         console.log("created rate")
     } catch (error) {
         throw error
@@ -117,7 +103,7 @@ const createInitialList = async () => {
             //insert each users into the taable
             await createList(listt)
         }
-        await getListById()
+        // await getListById()
         console.log("created list")
     } catch (error) {
         throw error
@@ -126,6 +112,20 @@ const createInitialList = async () => {
 }
 
 
+const createInitialInfo = async () => {
+    try{
+        //looping through ... array  from seedData
+        for (const infomation of info) {
+            //insert each users into the taable
+            await createInfo(infomation) //comeback
+        }
+        // await getAllInfo()
+        console.log("created info")
+    } catch (error) {
+        throw error
+    }
+
+}
 
 //call function and "rebuild" (due to drop table) the database
 
@@ -141,9 +141,9 @@ const rebuildDb = async () => {
          //generating starting data
          console.log("starting to seed")
          await createInitialUsers();
-         await createInitialInfo();
          await createInitialRate();
          await createInitialList();
+         await createInitialInfo();
          
 
     } catch (error) {
