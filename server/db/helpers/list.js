@@ -23,4 +23,21 @@ const createList = async ({ played, wanttobuy, owned }) => {
     }
 }
 
-module.exports = { createUser }
+const getListById = async (listId) => {
+    try {
+        const {
+            rows: [listt]
+        } = await client.query(
+            `
+                SELECT *
+                FROM list
+                WHERE "list_id" =${listId};
+            `
+        )
+        return listt
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createList, getListById }

@@ -7,16 +7,6 @@ const users =[
   {firstname: 'Chris', lastname: 'Ko', username: 'ggtabletop', password: 'word456'}
 ]
 
-//info - goes to rate and list
-const info =[
-    {gametitle: 'Betrayal at House on the Hill', theme: 'fantasy', year: '2004', expansions: true, rateline_id: 12, listline_id: 6},
-    {gametitle: 'Wingspan', theme: 'birdwatching', year: '2019', expansions: true, rateline_id: 7, listline_id: 7},
-    {gametitle: 'steam up', theme: 'food', year: '2023', expansions: false, rateline_id: 13, listline_id: 3},
-    {gametitle: 'Splendor', theme: 'chip-collecting', year: '2014', expansions: true, rateline_id: 2, listline_id: 8},
-    {gametitle: 'project L', theme: 'puzzle', year: '2020', expansions: true, rateline_id: 9, listline_id: 6},
-    {gametitle: 'cartographers', theme: 'drawing', year: '2019', expansions: true, rateline_id: 2, listline_id: 4}
-  ]
-
 //rate - goes to users
 const rate =[
     {recommended: true, setupcomplexities : '1', lvlofdifficulties: '1'},
@@ -30,7 +20,7 @@ const rate =[
     {recommended: true, setupcomplexities : '2', lvlofdifficulties: '4'},
     {recommended: true, setupcomplexities : '2', lvlofdifficulties: '5'},/////////
     {recommended: true, setupcomplexities : '3', lvlofdifficulties: '1'},
-    {recommended: true, setupcomplexities : '3', lvlofdifficulties: '2'},
+    {recommended: true, setupcomplexities : '3', lvlofdifficulties: '2'}, //<12
     {recommended: true, setupcomplexities : '3', lvlofdifficulties: '3'},
     {recommended: true, setupcomplexities : '3', lvlofdifficulties: '4'},
     {recommended: true, setupcomplexities : '3', lvlofdifficulties: '5'},////////
@@ -84,4 +74,15 @@ const list =[
 
 ]
 
-module.exports = { users, info, rate, list }
+//info - goes to rate and list
+const info =[
+  {gametitle: 'Betrayal at House on the Hill', theme: 'fantasy', year: '2004', expansions: true, ratelineid: 12, listlineid: 6},
+  {gametitle: 'Wingspan', theme: 'birdwatching', year: '2019', expansions: true, ratelineid: 7, listlineid: 7},
+  {gametitle: 'steam up', theme: 'food', year: '2023', expansions: false, ratelineid: 13, listlineid: 3},
+  {gametitle: 'Splendor', theme: 'chip-collecting', year: '2014', expansions: true, ratelineid: 2, listlineid: 8},
+  {gametitle: 'project L', theme: 'puzzle', year: '2020', expansions: true, ratelineid: 9, listlineid: 6},
+  {gametitle: 'cartographers', theme: 'drawing', year: '2019', expansions: true, ratelineid: 2, listlineid: 4}
+]
+
+
+module.exports = { users, rate, list, info }

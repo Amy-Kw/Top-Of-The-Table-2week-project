@@ -19,5 +19,19 @@ const createInfo = async ({ gametitle, theme, year, expansions, rateline_id, lis
     }
 }
 
+const getAllInfo = async () => {
+    try {
+        const { rows }
+         = await client.query(`
+            SELECT *
+            FROM info;
+        `)
+        console.log(rows)
+        return rows
+    } catch (error) {
+        throw error
+    }
+}
 
-module.exports = { createInfo }
+
+module.exports = { createInfo, getAllInfo }

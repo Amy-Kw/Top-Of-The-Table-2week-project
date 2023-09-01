@@ -18,7 +18,7 @@ const createUser = async ({ firstname, lastname, username, password }) => {
             //hooking up the parameters to the $variables
             [firstname, lastname, username, password]
         )
-        return users
+        return user
     } catch (error) {
         throw error
     }

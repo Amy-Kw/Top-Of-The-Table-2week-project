@@ -18,4 +18,22 @@ const createRate = async ({ recommended, setupcomplexities, lvlofdifficulties })
     }
 }
 
-module.exports = { createRate }
+
+const getRateById = async (rateId) => {
+    try {
+        const {
+            rows: [ratee]
+        } = await client.query(
+            `
+                SELECT *
+                FROM rate
+                WHERE "rate_id" =${rateId};
+            `
+        )
+        return ratee
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createRate, getRateById }
