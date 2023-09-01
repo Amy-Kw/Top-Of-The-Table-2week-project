@@ -9,12 +9,12 @@ const users =[
 
 //info - goes to rate and list
 const info =[
-    {gametitle: 'Betrayal at House on the Hill', theme: 'fantasy', year: '2004', expansions: true, ratelineId: 12},
-    {gametitle: 'Wingspan', theme: 'birdwatching', year: '2019', expansions: true, ratelineId: 7},
-    {gametitle: 'steam up', theme: 'food', year: '2023', expansions: false, ratelineId: 13},
-    {gametitle: 'Splendor', theme: 'chip-collecting', year: '2014', expansions: true, ratelineId: 2},
-    {gametitle: 'project L', theme: 'puzzle', year: '2020', expansions: true, ratelineId: 9},
-    {gametitle: 'cartographers', theme: 'drawing', year: '2019', expansions: true, ratelineId: 2},
+    {gametitle: 'Betrayal at House on the Hill', theme: 'fantasy', year: '2004', expansions: true, rateline_id: 12, listline_id: 6},
+    {gametitle: 'Wingspan', theme: 'birdwatching', year: '2019', expansions: true, rateline_id: 7, listline_id: 7},
+    {gametitle: 'steam up', theme: 'food', year: '2023', expansions: false, rateline_id: 13, listline_id: 3},
+    {gametitle: 'Splendor', theme: 'chip-collecting', year: '2014', expansions: true, rateline_id: 2, listline_id: 8},
+    {gametitle: 'project L', theme: 'puzzle', year: '2020', expansions: true, rateline_id: 9, listline_id: 6},
+    {gametitle: 'cartographers', theme: 'drawing', year: '2019', expansions: true, rateline_id: 2, listline_id: 4}
   ]
 
 //rate - goes to users
