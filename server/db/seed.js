@@ -1,6 +1,9 @@
 //DROP TABLES ARE BEING USED HERE, BEWARE!!! - droptable resets your database
 const client = require('./client')
 
+const { createUser, getAllUsers } = require('./helpers/users')
+const { createInfo } = require('./helpers/info')
+
 const { users, info, rate, list } = require('./seedData')
 
 const dropTables = async () => {
@@ -56,15 +59,17 @@ const createTables = async () => {
     console.log("tables built")
 }
 
+
 //inserting the data from seedData.js
 const createInitialUsers = async () => {
     try{
         //looping through ... array  from seedData
         for (const user of users) {
             //insert each users into the taable
-            await 
+            await createUser(user)
         }
-
+        await getAllUsers()
+        console.log("created users")
     } catch (error) {
         throw error
     }
@@ -85,6 +90,12 @@ const rebuildDb = async () => {
          //run our funtion
          await dropTables()
          await createTables()
+
+
+         //generating starting data
+         console.log("starting to seed")
+         await createInitialUsers();
+         
 
     } catch (error) {
         throw error
