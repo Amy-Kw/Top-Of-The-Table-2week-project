@@ -6,7 +6,7 @@ const createRate = async ({ recommended, setupcomplexities, lvlofdifficulties })
             rows:[ratee],
         } = await client.query (
             `
-            INSERT INTO users(recommended, setupcomplexities, lvlofdifficulties)
+            INSERT INTO rate(recommended, setupcomplexities, lvlofdifficulties)
             VALUES($1, $2, $3)
             RETURNING *;
             `,

@@ -11,7 +11,7 @@ const createList = async ({ played, wanttobuy, owned }) => {
 
         } = await client.query (
             `
-            INSERT INTO users(played, wanttobuy, owned)
+            INSERT INTO list(played, wanttobuy, owned)
             VALUES($1, $2, $3)
             RETURNING *;
             `,
