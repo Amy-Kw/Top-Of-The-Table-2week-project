@@ -11,6 +11,17 @@ async function getAllInfo() {
   }
 }
 
+// GET - /api/infoapi/:infoId - get info by id
+async function getInfoById(infoId) {
+    try{
+        const rows = data.information;
+        const info = rows.find(info => info.id === Number(infoId));
+        return info;
+    } catch (error) {
+        throw error;
+    }
+}
+
 // POST - /api/infoapi - create a new user
 async function createInfo(body) {
     try {
@@ -53,6 +64,7 @@ async function deleteInfo(infoId) {
 
   module.exports = {
     getAllInfo,
+    getInfoById,
     createInfo,
     updateInfo,
     deleteInfo,
