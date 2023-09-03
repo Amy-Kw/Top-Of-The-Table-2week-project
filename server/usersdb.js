@@ -11,6 +11,18 @@ async function getAllUsers() {
   }
 }
 
+// GET - /api/usersapi/:userId - get user by id
+async function getUsersById(usersId) {
+    try{
+        const rows = data.users;
+        const user = rows.find(info => user.id === Number(userId));
+        return user;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 // POST - /api/usersapi - create a new user
 async function createUser(body) {
     try {
@@ -53,6 +65,7 @@ async function deleteUser(userId) {
 
   module.exports = {
     getAllUsers,
+    getUsersById,
     createUser,
     updateUser,
     deleteUser,
