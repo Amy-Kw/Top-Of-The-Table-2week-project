@@ -14,9 +14,15 @@ app.use(bodyParser.json());
 const cors = require('cors');
 app.use(cors());
 
+//connecting to the db?
+const client = require('./db/client');
+client.connect();
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+
 
 // Router: /api
 // app.use('/api', require('./api'));
