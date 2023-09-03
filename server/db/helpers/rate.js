@@ -4,6 +4,7 @@ const createRate = async ({ recommended, setupcomplexities, lvlofdifficulties })
     try {
         const {
             rows:[ratee],
+            //AT INSERT INTO info< this little cheezer was user bc of copy and paste -REMEMBER TO UPDATE THIS
         } = await client.query (
             `
             INSERT INTO rate(recommended, setupcomplexities, lvlofdifficulties)

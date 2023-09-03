@@ -6,7 +6,7 @@ const createInfo = async ({ gametitle, theme, year, expansions, ratelineid, list
             rows:[infomation],
         } = await client.query (
             `
-            INSERT INTO info(gametitle, theme, year, expansions, ratelineid, listlineid)
+            INSERT INTO info(gametitle, theme, year, expansions, ratelineid, listlineid) 
             VALUES($1, $2, $3, $4, $5, $6)
             RETURNING *;
             `,
