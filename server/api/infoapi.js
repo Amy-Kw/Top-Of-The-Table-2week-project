@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAllinfo, getInfoById, createInfo, updateInfo, deleteInfo } = require('../db/dogs');
+const { getAllInfo, getInfoById, createInfo, updateInfo, deleteInfo } = require('../db/helpers/info');
+
 
 
 //infos = information    info = info
@@ -8,7 +9,7 @@ const { getAllinfo, getInfoById, createInfo, updateInfo, deleteInfo } = require(
 // GET - /api/info - get all info
 router.get('/', async (req, res, next) => {
     try{
-        const information = await getAllInformation();
+        const information = await getAllInfo();
         res.send(information);
     } catch (error) {
         next(error);
@@ -50,7 +51,7 @@ router.put('/:infoId', async (req, res, next) => {
 // DELETE - /api/info/:infoId - delete a info
 router.delete('/:infoId', async (req, res, next) => {
     try{
-        const dog = await deleteInfo(req.params.infoId);
+        const info = await deleteInfo(req.params.infoId);
         res.send(info);
     } catch (error) {
         next(error);

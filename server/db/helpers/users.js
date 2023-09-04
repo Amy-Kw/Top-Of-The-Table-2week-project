@@ -1,5 +1,6 @@
 const client = require('../client')
 
+//create user
 const createUser = async ({ firstname, lastname, username, password }) => {
     try {
         const {
@@ -24,6 +25,7 @@ const createUser = async ({ firstname, lastname, username, password }) => {
     }
 }
 
+//get all user
 const getAllUsers = async () => {
     try {
         const { rows }
@@ -37,4 +39,6 @@ const getAllUsers = async () => {
         throw error
     }
 }
+
+
 module.exports = { createUser, getAllUsers }

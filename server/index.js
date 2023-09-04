@@ -22,16 +22,17 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-
-
 // Router: /api
-// app.use('/api', require('./api'));
+app.use('/api', require('./api')); //any url will pull from index.js -from the api folder
 
-//Router: get users api?
-app.use('/users', require('/api/users'));
+// console.log('working yet?')
+// //Router: get users api?
+// app.use('/users', require('./api/usersapi'));
+// console.log('does it work?')
 
-//Router: get info api?
-app.use('/info', require('/api/info'));
+
+// //Router: get info api?
+// app.use('/info', require('./api/infoapi'));
 
 
 app.listen(PORT, () => {

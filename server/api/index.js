@@ -6,10 +6,18 @@ router.get('/health', (req, res, next) => {
     res.send('OK');
 });
 
-// ROUTER: /api/usersapi
-router.use('/userapi', require('./usersapi'));
+// ROUTER: /api/usersapi - //url path and then the econd is a file path - server to index.js file to api to index.js to whatever file(user or info) 
+router.use('/users', require('./usersapi'));
+///users - could be named anything
+//./userapi is pulling in the file name of the api
+
 
 // ROUTER: /api/infoapi
-router.use('/infoapi', require('./infoapi'));
+router.use('/info', require('./infoapi'));
 
 module.exports = router;
+
+
+
+//../one folder high dicrectory
+//./ - within the same folder 
