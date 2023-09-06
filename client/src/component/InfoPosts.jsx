@@ -47,6 +47,7 @@ export default function InfoPost() {
   ? infoPosts.filter((info) =>
       info.gametitle.toLowerCase().includes(searchParam)
   )
+  //the name infoPosts comes from line 17, even though it says infoposts - delcaring
   : infoPosts;
 
 

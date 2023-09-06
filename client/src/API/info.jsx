@@ -1,5 +1,4 @@
 // info fetch requests
-
 const baseUrl = 'http://localhost:8080';
 
 export async function fetchAllInfo() {
@@ -12,3 +11,28 @@ export async function fetchAllInfo() {
         return err;
     }
 }
+
+//delete a info post
+export async function deleteInfoPost(infoId) {
+    try {
+        const response = await fetch(`${baseUrl}/posts/${infoId}`, {
+        method: "DELETE",
+        });
+          
+        const result = await response.json();
+        console.log(result);
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+
+
+
+
+
+
+
+
+

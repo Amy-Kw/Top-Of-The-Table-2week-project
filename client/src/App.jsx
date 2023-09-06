@@ -2,6 +2,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import InfoPost from './component/InfoPosts';
+// import { Home } from './component/Home'
 import Navbar from './component/Navbar';
 // import users from "./componets/users"
 // import info from "./componets/infoList"
@@ -19,7 +20,8 @@ export default function App() {
         </div>
 
         <Routes>
-          <Route path="/" element={<InfoPost />} />
+          {/* <Route path="/" element={<InfoPost />} /> */}
+          {/* <Route path="/" element={<Home />} /> */}
           <Route path="/infoPosts" element={<InfoPost />} />
           
           {/* <Route path="/users" element={<Users />} />

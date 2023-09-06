@@ -8,7 +8,7 @@ export default function NavBar() {
     id="navbar">
       <Link to="/">Home</Link> <br></br>
       <Link to="/users"> BoadGamers </Link> <br></br>
-      <Link to="/infoPost"> Post </Link> <br></br>
+      <Link to="/infoPosts"> Post </Link> <br></br>
       <Link to="/infoList"> Table Top Games Information </Link> <br></br>
 
     </div>

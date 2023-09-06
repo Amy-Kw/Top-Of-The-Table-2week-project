@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function InfoListName({ infoId }) {
+export default function InfoList({ infoId }) {
   const navigate = useNavigate();
   return (
     <div>
