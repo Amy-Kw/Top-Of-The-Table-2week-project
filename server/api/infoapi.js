@@ -6,7 +6,7 @@ const { getAllInfo, getInfoById, createInfo, updateInfo, deleteInfo } = require(
 
 //infos = information    info = info
 
-// GET - /api/info - get all info
+// GET - /api/info - get all info < you be putting in http://localhost:8080/api/info
 router.get('/', async (req, res, next) => {
     try{
         const information = await getAllInfo();

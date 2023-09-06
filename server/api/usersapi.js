@@ -5,7 +5,7 @@ const { getAllUsers, createUser } = require("../db/helpers/users");
 
 //users api
 
-// GET - /api/user - get all users
+// GET - /api/user - get all users < you be putting in http://localhost:8080/api/users
 router.get("/", async (req, res, next) => {
     try {
       const users = await getAllUsers();
@@ -15,7 +15,6 @@ router.get("/", async (req, res, next) => {
     }
   });
 
-  
 
 //   // GET - /api/users/:userId - get users by id
 // router.get("/:userId", async (req, res, next) => {
