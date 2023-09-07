@@ -42,7 +42,7 @@ const getInfoById = async (infoId) => {
             `
                 SELECT *
                 FROM info
-                WHERE "infoId" =${infoId};
+                WHERE info_id =${infoId};
             `
         )
         return info

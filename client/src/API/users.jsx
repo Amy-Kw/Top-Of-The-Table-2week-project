@@ -12,3 +12,25 @@ export async function fetchAllUsers() {
         return err;
     }
 }
+
+
+// making a log in api?
+export async function createLogin(username, password) {
+    try {
+        const response = await fetch(`${baseUrl}/api/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password
+        })
+      });
+      const result = await response.json();
+      console.log("result", result);
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  }

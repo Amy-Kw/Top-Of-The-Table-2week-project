@@ -7,6 +7,7 @@ const { getAllInfo, getInfoById, createInfo, updateInfo, deleteInfo } = require(
 //infos = information    info = info
 
 // GET - /api/info - get all info < you be putting in http://localhost:8080/api/info
+//: - turing wherever into a catch all
 router.get('/', async (req, res, next) => {
     try{
         const information = await getAllInfo();
@@ -19,6 +20,7 @@ router.get('/', async (req, res, next) => {
 // GET - /api/info/:infoId - get info by id
 router.get('/:infoId', async (req, res, next) => {
     try{
+        console.log("I was hit!")
         const info = await getInfoById(req.params.infoId);
         res.send(info);
     } catch (error) {

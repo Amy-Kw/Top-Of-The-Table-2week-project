@@ -1,27 +1,27 @@
 import React, {useState, useEffect} from "react";
-import { fetchAllInfo } from "../API/info";
+import { fetchAllUsers } from "../API/users";
 import InfoPost from "./InfoPosts";
 
 
-export default function InfoList() {
+export default function UsersList() {
 
       // useState
-  const [allInfo, setAllInfo] = useState([]);
+  const [allUsers, setAllUsers] = useState([]);
 
   // useEffect
   useEffect(() => {
     async function fetchData() {
-      const info = await fetchAllInfo();
-      setAllInfo(info);
-      console.log(info);
-      return info;
+      const users = await fetchAllUsers();
+      setAllUsers(users);
+      console.log(users);
+      return users;
     }
     fetchData();
   },[]);
 
     return(
         <>
-            { allInfo.map((Info) => {
+            { allUsers.map((users) => {
                 return <InfoPost key={Info.info_id} info={Info} />
                 
             }) }

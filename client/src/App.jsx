@@ -1,34 +1,24 @@
-// import { useState, useEffect } from 'react'
-import './App.css'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import InfoPost from './component/InfoPosts';
-// import { Home } from './component/Home'
+import './App.css';
+import InfoList from './component/InfoList';
 import Navbar from './component/Navbar';
-// import users from "./componets/users"
-// import info from "./componets/infoList"
+import { Route, Routes } from "react-router-dom";
+import SingleInfoPost from './component/SingleInfoPost';
 
 
+function App() {
+//orange is the name of the url naming and the emement is the file and do that same for navbar
 
-export default function App() {
   return (
-      <div>
-      <h2>Top Of The Table!</h2>
+    <>
+    <Navbar/>
 
-      <BrowserRouter>
-        <div id="navbar">
-            <Navbar/>
-        </div>
-
-        <Routes>
-          {/* <Route path="/" element={<InfoPost />} /> */}
-          {/* <Route path="/" element={<Home />} /> */}
-          <Route path="/infoPosts" element={<InfoPost />} />
-          
-          {/* <Route path="/users" element={<Users />} />
-          <Route path="/info" element={<infoList />} /> */}
-        </Routes>
-      </BrowserRouter>
-        
-      </div>
+    <Routes>
+      <Route path="/info" element={<InfoList/>}/>
+      <Route path="/info/:id" element={<SingleInfoPost/>}/>
+    </Routes>
+    </>
   )
 }
+
+
+export default App;
