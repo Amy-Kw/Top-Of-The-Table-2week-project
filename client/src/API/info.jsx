@@ -12,6 +12,7 @@ export async function fetchAllInfo() {
     }
 }
 
+//get a single info
 export async function fetchSingleInfo(info_id) {
     try {
         const response = await fetch(`${baseUrl}/api/info/${info_id}`);
@@ -23,7 +24,7 @@ export async function fetchSingleInfo(info_id) {
     }
 }
 
-//edit/create a infoPost - need help - why red....
+//edit/create a infoPost
 export async function createInfoPost(newGametitle, newTheme, newYear, newExpansions) {
     try {
         const response = await fetch(`${baseUrl}/api/info`, {

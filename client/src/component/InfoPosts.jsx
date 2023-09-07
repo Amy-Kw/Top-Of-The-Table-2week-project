@@ -10,10 +10,8 @@ export default function InfoPost({ info }) {
 
     <Link to={`/info/${info.info_id}`} >
     
-      <p> {info.gametitle}</p>
-      {/* <p> {info.theme}</p>
-      <p> {info.yea}</p>
-      <p> {info.expansions}</p> */}
+      <p className="gametitle"> {info.gametitle}</p>
+
 
     </Link>
     

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { fetchAllUsers } from "../API/users";
-import InfoPost from "./InfoPosts";
+import ShowUsers from "./Users";
 
 
 export default function UsersList() {
@@ -22,7 +22,7 @@ export default function UsersList() {
     return(
         <>
             { allUsers.map((users) => {
-                return <InfoPost key={Info.info_id} info={Info} />
+                return <ShowUsers key={users.users_id} users={users} />
                 
             }) }
         </>

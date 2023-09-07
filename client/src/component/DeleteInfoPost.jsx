@@ -28,7 +28,7 @@ export default function DeleteInfoPost(infoId) { //why is the infoId not highlig
     }
   }
   return (
-    <div>
+    <div className="deletbutton">
          <button onClick={() => handleDelete(info._id)}>Delete Infomation Post</button>
     </div>
 );

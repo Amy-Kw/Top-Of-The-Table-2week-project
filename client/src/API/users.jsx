@@ -13,6 +13,18 @@ export async function fetchAllUsers() {
     }
 }
 
+//fetch a single user
+export async function fetchSingleUser(users_id) {
+    try {
+        const response = await fetch(`${baseUrl}/api/users/${users_id}`);
+        const returnVal = await response.json();
+        return returnVal;
+    } catch(err) {
+        console.log(err);
+        return err;
+    }
+}
+
 
 // making a log in api?
 export async function createLogin(username, password) {

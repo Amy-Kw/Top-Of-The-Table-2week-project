@@ -1,29 +1,23 @@
-import DeleteInfoPost from "./DeleteInfoPost";
 import { Link } from "react-router-dom";
-// import CreateInfoPost from "./EditInfoPost";
 //react - need cap for 1st letter
 
-export default function InfoPost({ info }) {
+//the `/users/${users.users_id}` is /what you named the url(whatever)(coming from navbar/api)/${pulling the table name of the seedData(ex: info table, rate table, list table..).name of the column you are pulling the data from(ex: gametitle,ratelineid..)}
+
+export default function ShowUsers({ users }) {
 
   return(
-    <div>
+    <div className="usernamedisplay">
 
-    <Link to={`/info/${info.info_id}`} >
+    <Link to={`/users/${users.users_id}`} >
     
-      <p> {info.gametitle}</p>
-      <p> {info.theme}</p>
-      <p> {info.yea}</p>
-      <p> {info.expansions}</p>
+      <p className="link"> {users.username}</p>
 
     </Link>
     
-      <DeleteInfoPost infoId={info.info_id}/>
-      {/* <CreateInfoPost info={} */}
+
     </div>
   );
 }
-
-
 
 
 // import React, { useEffect, useState } from "react";

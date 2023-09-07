@@ -25,7 +25,9 @@ export default function InfoList() {
                 return <InfoPost key={Info.info_id} info={Info} />
                 
             }) }
+            
         </>
     );
 }
+
 

@@ -21,10 +21,12 @@ export default function SingleInfoPost() {
     return(
         <div>
             <p>
-                {singleInfo.gametitle}
-                {singleInfo.theme}
-                {singleInfo.year}
-                {singleInfo.expansions}
+                {singleInfo.gametitle} <br></br>
+                {singleInfo.theme} <br></br>
+                {singleInfo.year} <br></br>
+                {singleInfo.expansions} <br></br>
+                {singleInfo.ratelineId}
+                
 
             </p>
         </div>
