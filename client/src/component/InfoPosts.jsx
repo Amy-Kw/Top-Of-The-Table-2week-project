@@ -1,6 +1,7 @@
 import DeleteInfoPost from "./DeleteInfoPost";
+import CreateInfoPost from "./EditInfoPost";
 import { Link } from "react-router-dom";
-// import CreateInfoPost from "./EditInfoPost";
+
 //react - need cap for 1st letter
 
 export default function InfoPost({ info }) {
@@ -13,10 +14,12 @@ export default function InfoPost({ info }) {
       <p className="gametitle"> {info.gametitle}</p>
 
 
+
     </Link>
     
-      <DeleteInfoPost infoId={info.info_id}/>
-      {/* <CreateInfoPost info={} */}
+            <DeleteInfoPost infoId={info.info_id}/>
+            <CreateInfoPost infoId={info.info_id}/>
+      
     </div>
   );
 }

@@ -25,9 +25,9 @@ export async function fetchSingleInfo(info_id) {
 }
 
 //edit/create a infoPost
-export async function createInfoPost(newGametitle, newTheme, newYear, newExpansions) {
+export async function createInfoPost(info_id, newGametitle, newTheme, newYear, newExpansions) {
     try {
-        const response = await fetch(`${baseUrl}/api/info`, {
+        const response = await fetch(`${baseUrl}/api/info/${info_id}`, {  //updated it to have ${info_id} (`${baseUrl}/api/info/${info_id}` why is this wrong
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -46,15 +46,18 @@ export async function createInfoPost(newGametitle, newTheme, newYear, newExpansi
       console.log(result);
       return result;
   } catch (error) {
-      console.error(error);
+    throw new Error(error);
+    //   console.error(error); //why this is wrong
   }
 
 }
 
+
+
 //delete a info post
-export async function deleteInfoPost(infoId) {
+export async function deleteInfoPost(info_id) {
     try {
-        const response = await fetch(`${baseUrl}/api/info${infoId}`, {
+        const response = await fetch(`${baseUrl}/api/info${info_id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"

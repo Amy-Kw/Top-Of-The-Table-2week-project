@@ -25,7 +25,7 @@ export default function SingleInfoPost() {
                 {singleInfo.theme} <br></br>
                 {singleInfo.year} <br></br>
                 {singleInfo.expansions} <br></br>
-                {singleInfo.ratelineId}
+                {/* {singleInfo.ratelineId} */}
                 
 
             </p>

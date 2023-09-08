@@ -1,18 +1,19 @@
-import { useNavigate } from "react-router-dom";
 import { deleteInfoPost } from "../API/info";
+import { useNavigate } from "react-router-dom";
 
-
-export default function DeleteInfoPost(infoId) { //why is the infoId not highlighted
+export default function DeleteThePost() { //why is the infoId not highlighted - took it out
     const navigate = useNavigate();
 
-    async function handleDelete(infoId) {
+    async function handleDelete(info_id) {
         console.log("delete function starting");
-        infoId.preventDefault();
+        info_id.preventDefault();
 
     try {
-      const result = await DeleteInfoPost(infoId);
+      const result = await deleteInfoPost(info_id);
+
       console.log(result)
-      navigate("/InfoPosts");
+      console.log(info_id)
+      navigate("/info");
       if (result.success) {
         getAllInfo(); 
         console.log('show success')
@@ -28,9 +29,10 @@ export default function DeleteInfoPost(infoId) { //why is the infoId not highlig
     }
   }
   return (
-    <div className="deletbutton">
-         <button onClick={() => handleDelete(info._id)}>Delete Infomation Post</button>
+    <div className="deletebutton">
+         <button onClick={() => handleDelete(info_id)}>Delete Infomation Post</button>
     </div>
 );
 }
- 
+
+//changing the info.info_id to info_id
