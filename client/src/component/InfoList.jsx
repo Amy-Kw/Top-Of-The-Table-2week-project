@@ -19,10 +19,18 @@ export default function InfoList() {
     fetchData();
   },[]);
 
+
+console.log(allInfo)
+
+  
+
     return(
         <>
             { allInfo.map((Info) => {
-                return <InfoPost key={Info.info_id} info={Info} />
+
+                return <InfoPost key={Info.info_id} info={Info} setAllInfo={setAllInfo} />
+                
+
                 
             }) }
             

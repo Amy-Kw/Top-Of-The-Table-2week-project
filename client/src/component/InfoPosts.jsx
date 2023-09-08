@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 //react - need cap for 1st letter
 
-export default function InfoPost({ info }) {
+export default function InfoPost({ info, setAllInfo }) {
 
   return(
     <div>
@@ -17,10 +17,13 @@ export default function InfoPost({ info }) {
 
     </Link>
     
-            <DeleteInfoPost infoId={info.info_id}/>
-            <CreateInfoPost infoId={info.info_id}/>
+            <DeleteInfoPost info_id={info.info_id}/>  
+            <CreateInfoPost setAllInfo={setAllInfo}/>
       
     </div>
   );
 }
+
+
+///info_id - is the same as infoId - its whatever you name it
 

@@ -57,7 +57,7 @@ async function deleteInfo(infoId) {
     try{
         const { rows: [info] } = await client.query(`
         DELETE FROM info
-        WHERE id=$1
+        WHERE info_id=$1
         RETURNING *;
         `, [infoId]);
         return info;
@@ -67,7 +67,6 @@ async function deleteInfo(infoId) {
 }
 
 //put - update a info
-
 async function updateInfo(infoId = {}) {
 
     if (setString.length === 0) {

@@ -6,7 +6,7 @@ import { fetchAllInfo } from "../API/info";
 
 
 
-export default function CreateInfoPost({ info_id }) {
+export default function CreateInfoPost({setAllInfo}) {
 // export default function CreateInfoPost(info_id, newGametitle, newTheme, newYear, newExpansions) {
 	const [newGametitle, setNewGametitle] = useState("");
 	const [newTheme, setNewTheme] = useState("");
@@ -24,21 +24,19 @@ export default function CreateInfoPost({ info_id }) {
                 newYear,
                 newExpansions
             };
-            const result = await createInfoPost(newPost); //how is this wrong..
+            const result = await createInfoPost(newGametitle, newTheme, newYear, newExpansions); //
             const info = await fetchAllInfo();
+            console.log(result)
             console.log(info)
-            setNewGametitle(info.info_id);
-            setNewTheme(info.info_id);
-            setNewYear(info.info_id);
-            setNewExpansions(info.info_id);
+            setNewGametitle("");
+            setNewTheme("");
+            setNewYear("");
+            setNewExpansions("");
+            setAllInfo(info)
             return result;
         }
         createThePost();
 
-        setNewGametitle('');
-        setNewTheme('');
-        setNewYear('');
-        setNewExpansions(false);
     };
 
     return(

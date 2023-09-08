@@ -43,7 +43,7 @@ router.post('/', async (req, res, next) => {
 // PUT - /api/info/:infoId - update a info
 router.put('/:infoId', async (req, res, next) => {
     try{
-        const info = await updateInfo(req.params.infoIdId, req.body);
+        const info = await updateInfo(req.params.infoId, req.body);
         res.send(info);
     } catch (error) {
         next(error);
