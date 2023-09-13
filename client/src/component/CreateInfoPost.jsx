@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createInfoPost } from "../API/info";
-import { updateInfoPost } from "../API/info";
 import { fetchAllInfo } from "../API/info";
 
 
