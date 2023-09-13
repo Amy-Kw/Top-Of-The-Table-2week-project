@@ -1,6 +1,7 @@
 import DeleteInfoPost from "./DeleteInfoPost";
-import CreateInfoPost from "./EditInfoPost";
-import UpdatedInfoPost from "./Edit";
+import CreateInfoPost from "./CreateInfoPost";
+// import UpdatedInfoPost from "./Edit";
+// import SingleInfoPost from "./SingleInfoPost";
 import { Link } from "react-router-dom";
 
 //react - need cap for 1st letter
@@ -20,8 +21,9 @@ export default function InfoPost({ info, setAllInfo }) {
     
             <DeleteInfoPost info_id={info.info_id}/>  
             <CreateInfoPost setAllInfo={setAllInfo}/>
+            {/* <SingleInfoPost info={info}/> */}  
 
-            <UpdatedInfoPost setAllInfo={setAllInfo}/>
+            
             
             
 
@@ -30,6 +32,9 @@ export default function InfoPost({ info, setAllInfo }) {
   );
 }
 
+//commenting the single post out or else it would break the info browser
+
+//<UpdatedInfoPost setAllInfo={setAllInfo}/>
     //<UpdatedInfoPost info_id={info.info_id}/>
 
 ///info_id - is the same as infoId - its whatever you name it

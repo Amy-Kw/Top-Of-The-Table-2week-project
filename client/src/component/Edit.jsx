@@ -4,35 +4,46 @@ import { useNavigate } from "react-router-dom";
 import { updateInfoPost } from "../API/info";
 
 
-export default function UpdatePostedInfoPost(props) {
+export default function UpdatePostedInfoPost(info) {
 // export default function CreateInfoPost(info_id, newGametitle, newTheme, newYear, newExpansions) {
   const [newGametitle, setNewGametitle] = useState("");
   const [newTheme, setNewTheme] = useState("");
   const [newYear, setNewYear] = useState("");
-  const [info_id, setInfo_Id] = useState("");
+  const [infoId, setInfo_Id] = useState("");
   const [newExpansions, setNewExpansions] = useState(false);
 //   const [submitData, setSubmitData] = useState(null);
 //   const [error, setError] = useState(null);
-
-    const submitHandler = (e) => {
+ console.log('egg', info)
+     const submitHandler = async (e) => {
         e.preventDefault();
-        async function editInfoPost(infoId) {
-            // const updateInfoPost = { newGametitle, newTheme, newYear, newExpansions } };
-            console.log("top of edit post") //< this works
-            console.log(infoId)
-            const SubmitTheInfoPost = { post: { newGametitle, newTheme, newYear, newExpansions, infoId } };
-            const editPost = await updateInfoPost(props.infoId, SubmitTheInfoPost);  //<wrong here why not a function - the stopage
-            console.log( "edit post function?")
-            setNewGametitle("");
-            setNewTheme("");
-            setNewYear("");
-            setNewExpansions("");
-            setInfo_Id("");
-            setAllInfo(info)
-            return editPost;
-        }
-        editInfoPost();
+        // setInfo_Id(props.info_id)
+        const info_id=info.infoId
 
+        console.log('this string here', infoId)
+        try {
+            async function editInfoPost(infoId) {
+                // const updateInfoPost = { newGametitle, newTheme, newYear, newExpansions } };
+                console.log("top of edit post") //< this works
+                console.log('this HERE', infoId)
+                const SubmitTheInfoPost = { post: { newGametitle, newTheme, newYear, newExpansions, infoId } };
+                const editPost = await updateInfoPost(info.infoId, SubmitTheInfoPost);  //<wrong here why not a function - the stopage
+                console.log( "edit post function?")
+                setNewGametitle("");
+                setNewTheme("");
+                setNewYear("");
+                setNewExpansions("");
+                setInfo_Id("");
+                setAllInfo(info)
+                return editPost;
+            }
+            editInfoPost();
+    
+            
+        } catch (error) {
+            console.error(error)
+            
+        }
+        
     };
  
 
@@ -48,27 +59,6 @@ export default function UpdatePostedInfoPost(props) {
         </>
     );
     }
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
    
    

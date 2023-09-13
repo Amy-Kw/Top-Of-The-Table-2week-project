@@ -15,6 +15,10 @@ router.use('/users', require('./usersapi'));
 // ROUTER: /api/infoapi
 router.use('/info', require('./infoapi'));
 
+//token router
+// ROUTER: /api/auth <bc I name it to be that, the require is the name of the file
+// router.use('/auth', require('./auth'))
+
 module.exports = router;
 
 

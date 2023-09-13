@@ -13,7 +13,7 @@ export default function InfoList() {
     async function fetchData() {
       const info = await fetchAllInfo();
       setAllInfo(info);
-      console.log(info);
+      console.log('info', info);
       return info;
     }
     fetchData();
@@ -26,9 +26,9 @@ console.log(allInfo)
 
     return(
         <>
-            { allInfo.map((Info) => {
+            { allInfo.map((info) => {
 
-                return <InfoPost key={Info.info_id} info={Info} setAllInfo={setAllInfo} />
+                return <InfoPost key={info.info_id} info={info} setAllInfo={setAllInfo}/>
                 
 
                 
@@ -38,4 +38,4 @@ console.log(allInfo)
     );
 }
 
-
+//Info bcame info - in the allmap

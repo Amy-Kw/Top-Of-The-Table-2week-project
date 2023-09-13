@@ -108,7 +108,3 @@ export async function deleteInfoPost(info_id) {
       throw error;
     }
   }
-
-
-
-
