@@ -41,4 +41,22 @@ const getAllUsers = async () => {
 }
 
 
-module.exports = { createUser, getAllUsers }
+
+const getUserById = async (userId) => {
+    try {
+        const {
+            rows: [info]
+        } = await client.query(
+            `
+                SELECT *
+                FROM info
+                WHERE info_id =${userId};
+            `
+        )
+        return info
+    } catch (error) {
+        throw error
+    }
+}
+
+module.exports = { createUser, getAllUsers, getUserById }

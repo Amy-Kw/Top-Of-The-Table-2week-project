@@ -27,7 +27,7 @@ export async function fetchSingleInfo(info_id) {
     }
 }
 
-//edit/create a infoPost
+//create a infoPost
 export async function createInfoPost(newGametitle, newTheme, newYear, newExpansions) {
 // const body= {gametitle, theme, year, expansions, ratelineid, listlineid}
     try {
@@ -61,26 +61,31 @@ export async function createInfoPost(newGametitle, newTheme, newYear, newExpansi
 
 }
 
-
-//delete a info post
-// export async function deleteInfoPost(info_id) {
-//     try {
-//         const response = await fetch(`${baseUrl}/api/info${info_id}`, {
-//         method: "DELETE",
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         });
-          
-//         const result = await response.json();
-//         console.log(result);
-//         return result;
-//     } catch (error) {
-//         console.error(error);
-//     }
-
-// }
-
+//edit infoPost
+export const updateInfoPost = async (newGametitle, newTheme, newYear, newExpansions, info_id) => {
+    try {
+        // console.log("top of the api edit infopost", newGametitle)
+        const response = await fetch(`${baseUrl}/api/info/${info_id}`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                gametitle: newGametitle,
+                theme: newTheme,
+                year: newYear,
+                expansions: newExpansions,
+                info_id: info_id
+            }),
+        });
+  
+        const result = await response.json();
+        console.log(result);
+        return result
+    } catch (error) {
+        throw error;
+    }
+}
 
 export async function deleteInfoPost(info_id) {
     try {

@@ -33,8 +33,8 @@ const getAllInfo = async () => {
     }
 }
 
-
-const getInfoById = async (infoId) => {
+//updated the $info
+const getInfoById = async (info_id) => {
     try {
         const {
             rows: [info]
@@ -42,7 +42,7 @@ const getInfoById = async (infoId) => {
             `
                 SELECT *
                 FROM info
-                WHERE info_id =${infoId};
+                WHERE info_id =${info_id};
             `
         )
         return info
@@ -67,19 +67,21 @@ async function deleteInfo(infoId) {
 }
 
 //put - update a info
-async function updateInfo(infoId = {}) {
+//UPDATE info  SET column1 = value1, column2 = value2  WHERE condition
+async function updateInfo(infoId, body) {
 
-    if (setString.length === 0) {
-        return;
-    }
-
+    // if (setString.length === 0) {
+    //     return;
+    // }
+   console.log(infoId)
     try {
         const { rows: [info] } = await client.query(`
       UPDATE info
-      SET ${setString}
-      WHERE id=${infoId}
+      SET gametitle = $1, theme = $2, year = $3, expansions = $4
+      WHERE info_id=${infoId}
       RETURNING *;
-    `, [infoId]);
+    `, [body.title, body.gametitle, body.theme, body.year, body.expansions]);
+    
 
         return info;
     } catch (error) {
