@@ -3,18 +3,18 @@ import { fetchSingleInfo } from "../API/info";
 import { useParams } from "react-router-dom";
 import UpdatePostedInfoPost from "./Edit";
 
-
-export default function SingleInfoPost( { info } ) {
+//no need for the {info}!
+export default function SingleInfoPost() {
     const [singleInfo, setSingleInfo] = useState({});
     const {id} =useParams()
- console.log('info', info)
+//  console.log('info', info)
 //  console.log('does this work', info.infiId)
 
 
     useEffect(() => {
       async function fetchData() {
         const info = await fetchSingleInfo(id);
-        setSingleInfo(info);
+        setSingleInfo(info); //setSingleInfo is renaming info so you should use setSingleInfo instead for passing thing around
         console.log(info);
         return info;
       }
@@ -39,14 +39,16 @@ export default function SingleInfoPost( { info } ) {
 
 
 
-              <UpdatePostedInfoPost info={info}/>
+              <UpdatePostedInfoPost info={singleInfo} setSingleInfo={setSingleInfo}/>
+              
 
 
         </div>
     );
 }
 
-
+//<UpdatePostedInfoPost info={singleInfo} setSingleInfo={setSingleInfo}/>
+//above were you had info=info its actually info={singleInfo}, and the setSingleInfo={setSingleInfo} < helped not making the browser to refresh to see the update
 
 
 // export default function InfoPost({ info, setAllInfo }) {

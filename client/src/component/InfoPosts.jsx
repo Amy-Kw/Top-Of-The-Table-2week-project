@@ -39,3 +39,4 @@ export default function InfoPost({ info, setAllInfo }) {
 
 ///info_id - is the same as infoId - its whatever you name it
 
+//left off here - trying to pass the correct naming of the props or trying to pass the correct props

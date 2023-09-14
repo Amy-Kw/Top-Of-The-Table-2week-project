@@ -3,6 +3,8 @@ const { createUser, getAllUsers, getUserById } = require('../db/helper/users')
 
 const router = require ('express'). Router()
 
+const SALT_ROUNDS = 12
+
 //tester route/ root route
 router.get('/', async (req, res, next) => {
     try {
@@ -11,5 +13,8 @@ router.get('/', async (req, res, next) => {
         next(error)
     }
 })
+
+
+
 
 module.exports = router

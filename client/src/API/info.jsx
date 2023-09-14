@@ -74,8 +74,7 @@ export const updateInfoPost = async (newGametitle, newTheme, newYear, newExpansi
                 gametitle: newGametitle,
                 theme: newTheme,
                 year: newYear,
-                expansions: newExpansions,
-                info_id: info_id
+                expansions: newExpansions, //took away the info_id below expansions
             }),
         });
   

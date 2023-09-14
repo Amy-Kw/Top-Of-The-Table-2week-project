@@ -13,7 +13,7 @@ export default function InfoList() {
     async function fetchData() {
       const info = await fetchAllInfo();
       setAllInfo(info);
-      console.log('info', info);
+      console.log('info from line 16 on infoList file', info);
       return info;
     }
     fetchData();

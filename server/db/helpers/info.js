@@ -80,7 +80,7 @@ async function updateInfo(infoId, body) {
       SET gametitle = $1, theme = $2, year = $3, expansions = $4
       WHERE info_id=${infoId}
       RETURNING *;
-    `, [body.title, body.gametitle, body.theme, body.year, body.expansions]);
+    `, [body.gametitle, body.theme, body.year, body.expansions]);
     
 
         return info;
@@ -94,3 +94,4 @@ module.exports = { createInfo, getAllInfo, getInfoById, deleteInfo, updateInfo }
 
 
 
+//the problem was that in line 83 - there was an extra body.title bc I did a copy and paste! - so counting 4 is 4 not 5
